@@ -1,20 +1,21 @@
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class DataLoad
 {
-  private Queue<Integer> simpleQueue = new LinkedList();
-  //private Queue<Integer> simpleQueue = new PriorityQueue<>( );
+  //private Queue<Integer> simpleQueue = new LinkedList();
+  private Queue<Integer> simpleQueue = new PriorityQueue<>();
 
   private void addItems()
   {
-    simpleQueue.add(new Integer(3));
-    simpleQueue.add(new Integer(1));
+    simpleQueue.add(new Integer(20));
     simpleQueue.add(new Integer(10));
+    simpleQueue.add(new Integer(30));
   }
 
-  private void printQueue()
+  private void printQueue(Queue simpleQueue)
   {
     /*
     System.out.println("List >>");
@@ -30,9 +31,18 @@ public class DataLoad
     //return simpleQueue.remove();
     Integer e = simpleQueue.poll();
     System.out.println("\nRemove item : " + e);
-    printQueue();
+    printQueue(simpleQueue);
     System.out.println("\n");
     return e;
+  }
+
+  private void highestItem()
+  {
+    Queue q = new PriorityQueue<>(5, Collections.reverseOrder());
+    q.addAll( simpleQueue );
+
+    System.out.println("\nHighest item : " + q.peek());
+    printQueue(q);
   }
 
   private void remove( Integer item)
@@ -44,7 +54,9 @@ public class DataLoad
   {
     DataLoad dl = new DataLoad();
     dl.addItems();
-    dl.printQueue();
+    dl.printQueue(dl.simpleQueue);
+
+    dl.highestItem();
 
     dl.removeFifo();
     dl.remove(new Integer(12));
