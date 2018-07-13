@@ -5,7 +5,6 @@ import java.util.Queue;
 
 public class DataLoad
 {
-  //private Queue<Integer> simpleQueue = new LinkedList();
   private Queue<Integer> simpleQueue = new PriorityQueue<>();
 
   private void addItems()
@@ -17,18 +16,11 @@ public class DataLoad
 
   private void printQueue(Queue simpleQueue)
   {
-    /*
-    System.out.println("List >>");
-    for (Integer item : simpleQueue )
-    {
-      System.out.println(item);
-    }*/
     System.out.println(simpleQueue);
   }
 
   private Integer removeFifo()
   {
-    //return simpleQueue.remove();
     Integer e = simpleQueue.poll();
     System.out.println("\nRemove item : " + e);
     printQueue(simpleQueue);
